@@ -12,7 +12,7 @@ require('dotenv').config()
 const jwt = require("jsonwebtoken")
 const PORT = process.env.PORT || 5000;
 const uuid = require('uuid');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const session = require('express-session');
 const { GridFsStorage } = require('multer-gridfs-storage');
 const path = require('path');
