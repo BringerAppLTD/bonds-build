@@ -10,7 +10,7 @@ const server = http.createServer(app);
 const cors = require('cors');
 require('dotenv').config()
 const jwt = require("jsonwebtoken")
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 const uuid = require('uuid');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
@@ -110,12 +110,6 @@ async function run() {
     app.use(bodyParser.json());
     app.use(express.json())
     app.use(express.urlencoded({ extended: true }));
-    app.use(session({
-      secret: process.env.ENCRYPTION_KEY,
-      resave: false,
-      saveUninitialized: true,
-      cookie: { secure: false } // Set `secure: true` if using HTTPS
-    }));
 
     const PAYSTACK_SECRET_KEY = process.env.PAYSTACK_SECRET_KEY;
 
@@ -831,6 +825,6 @@ app.get('/', (req, res) => {
     res.send('Welcome to Bonds server')
 })
 
-server.listen (port, () => {
-    console.log(`Bonds platform app listening on port ${port}`)
+server.listen (PORT, () => {
+    console.log(`Bonds platform app listening on port ${PORT}`)
 })
